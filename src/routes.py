@@ -60,6 +60,21 @@ def checkout_branded():
     )
 
 
+@bp.route("checkout/selector/")
+def checkout_selector():
+    """Return the rendered branded+ACDC checkout page from its template."""
+
+    template = "checkout-selector.html"
+    partner_and_merchant_config = get_partner_and_merchant_config()
+
+    return render_template(
+        template,
+        method="selector",
+        **partner_and_merchant_config,
+        favicon=current_app.config["favicon"],
+    )
+
+
 @bp.route("checkout/google-pay/")
 def checkout_google_pay():
     """Return the rendered Google Pay checkout page from its template."""

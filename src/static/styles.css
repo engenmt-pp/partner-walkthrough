@@ -681,3 +681,52 @@ button {
     outline-offset: 0.25rem;
     border-radius: 0.125rem;
 }
+
+#checkout-branded {
+    /* background-color: blue; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    padding: 1em;
+
+    formset, #payment-container {
+        border-radius: 1em;
+        border: 1px solid;
+        padding: 1em;
+    }
+
+    formset {
+        grid-column: 1;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5px;
+
+        label {
+            cursor: pointer;
+            background-color: white;
+            border-radius: 1em;
+            border: 1px solid;
+            padding: 1em;
+        }
+    }
+    #payment-container {
+        grid-column: 2;
+        #alternate-button-container {
+            button {
+                background-color: purple;
+
+                color: white;
+                font-weight: 600;
+                font-style: italic;
+                font-size: 22px;
+
+                height: 45px;
+                line-height: 22px;
+
+                width: 100%;
+                border-radius: 4px;
+            }
+        }
+    }
+}

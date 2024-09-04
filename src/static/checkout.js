@@ -123,6 +123,10 @@ async function buildScriptElement(onload, checkoutMethod) {
       components = 'buttons'
       query.set('enable-funding', 'venmo,paylater,card')
       break
+    case 'selector':
+      components = 'buttons,card-fields'
+      query.set('enable-funding', 'venmo')
+      break
     case 'google-pay':
       components = 'googlepay'
       break
