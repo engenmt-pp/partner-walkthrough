@@ -52,10 +52,19 @@ function getGoogleIsReadyToPayRequest(allowedPaymentMethods) {
 async function getGooglePaymentDataRequest() {
   const { allowedPaymentMethods } = await getGooglePayConfig()
 
-  const paymentDataRequest = Object.assign({}, baseRequest)
-  paymentDataRequest.allowedPaymentMethods = allowedPaymentMethods
-  paymentDataRequest.transactionInfo = getGoogleTransactionInfo()
-  paymentDataRequest.callbackIntents = ["PAYMENT_AUTHORIZATION"]
+  const transactionInfo = getGoogleTransactionInfo()
+  const callbackIntents = ["PAYMENT_AUTHORIZATION"]
+
+  const paymentDataRequest = Object.assign({}, baseRequest, {
+    allowedPaymentMethods,
+    transactionInfo,
+    callbackIntents,
+    shippingAddressRequired: true
+  })
+  // paymentDataRequest.allowedPaymentMethods = allowedPaymentMethods
+  // paymentDataRequest.transactionInfo = getGoogleTransactionInfo()
+  // paymentDataRequest.callbackIntents = ["PAYMENT_AUTHORIZATION"]
+  // paymentDataRequest.shippingAddressRequired = true
 
   return paymentDataRequest
 }
@@ -106,14 +115,16 @@ async function onClick() {
   /**
    * Show Google Pay payment sheet when Google Pay payment button is clicked
    */
-  const paymentDataRequest = await getGooglePaymentDataRequest()
-  paymentDataRequest.transactionInfo = getGoogleTransactionInfo()
-
   paymentsClient = getGooglePaymentsClient()
+
+  const paymentDataRequest = await getGooglePaymentDataRequest()
+  console.log(paymentDataRequest)
   paymentsClient.loadPaymentData(paymentDataRequest)
 }
-async function createAndCaptureOrder({ paymentMethodData }) {
+async function createAndCaptureOrder({ paymentMethodData, shippingAddress, ...kwargs }) {
+  console.log('kwargs', kwargs)
   console.group('Creating a PayPal order with paymentMethodData:', paymentMethodData)
+  console.log(shippingAddress)
   const paymentSource = 'google_pay'
   const options = { paymentSource }
   const orderId = await createOrder(options)

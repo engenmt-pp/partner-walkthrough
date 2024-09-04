@@ -391,20 +391,6 @@ class Order:
                     customer["id"] = self.customer_id
                 if self.merchant_customer_id:
                     customer["merchant_customer_id"] = self.merchant_customer_id
-                    # customer |= {
-                    #     "merchant_customer_id": self.merchant_customer_id,
-                    #     "email": "johndown@gmail.com",
-                    #     "name": {
-                    #         "given_name": "John",
-                    #         "surname": "Doe",
-                    #     },
-                    #     "phones": [
-                    #         {
-                    #             "national_number": "6698113328",
-                    #             "country_code": "1",
-                    #         },
-                    #     ],
-                    # }
 
             case "return-buyer":
                 if self.customer_id:
@@ -583,6 +569,8 @@ class Order:
                     )
 
         data = {}
+        if self.reference_id:
+            data["reference_id"] = self.reference_id
         payment_source = self.build_payment_source_for_authorize()
         if payment_source:
             data["payment_source"] = payment_source
