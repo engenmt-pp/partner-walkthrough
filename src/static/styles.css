@@ -682,10 +682,12 @@ button {
     border-radius: 0.125rem;
 }
 
-#checkout-branded {
+#checkout-selector {
     /* background-color: blue; */
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* grid-auto-rows: auto; */
+    align-items: start;
     gap: 1em;
     padding: 1em;
 
@@ -702,6 +704,12 @@ button {
         grid-template-columns: 1fr;
         gap: 5px;
 
+        legend {
+            font-size: 1.25em;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
         label {
             cursor: pointer;
             background-color: white;
@@ -710,7 +718,33 @@ button {
             padding: 1em;
         }
     }
+    :has(input[value="cards"]:checked) {
+        #cards-container {
+            display: block;
+        }
+    }
+    :has(input[value="paypal"]:checked) {
+        #paypal-button-container {
+            display: block;
+        }
+    }
+    :has(input[value="venmo"]:checked) {
+        #venmo-button-container {
+            display: block;
+        }
+    }
+    :has(input[value="alternate"]:checked) {
+        #alternate-button-container {
+            display: block;
+        }
+    }
     #payment-container {
+        header {
+            font-size: 1.25em;
+            font-weight: 600;
+            text-decoration: underline;
+            margin-block-end: 1em;
+        }
         grid-column: 2;
         #alternate-button-container {
             button {

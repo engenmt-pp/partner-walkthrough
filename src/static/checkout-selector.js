@@ -6,6 +6,8 @@ import {
     createVaultPaymentToken
 } from './checkout.js'
 
+import loadHostedFields from './checkout-hf-v2.js'
+
 function getMethods() {
     const vaultWithoutPurchase = document.querySelector('#vault-without-purchase:checked')
     if (vaultWithoutPurchase) {
@@ -25,35 +27,37 @@ function getMethods() {
 async function loadPaymentMethods() {
     const fundingSources = {
         paypal: paypal.FUNDING.PAYPAL,
-        // paylater: paypal.FUNDING.PAYLATER,
         venmo: paypal.FUNDING.VENMO,
         alternate: null,
         cards: null,
     }
-    // Loop over each payment method
 
+    // Loop over each payment method
     for (const [label, fundingSource] of Object.entries(fundingSources)) {
-        const containerId = `${label}-button-container`
-        const container = document.getElementById(containerId)
         if (fundingSource) {
+            const containerId = `${label}-button-container`
+            const container = document.getElementById(containerId)
+
             const methods = getMethods()
-            const config = { fundingSource, style, ...methods }
+            const config = { fundingSource, ...methods }
 
             const button = paypal.Buttons(config)
             if (button.isEligible()) {
                 button.render(`#${containerId}`)
             }
-            if (label == 'paypal') {
-                container.style.display = 'block'
-            } else {
-                container.style.display = 'none'
-            }
+            container.style.display = 'none'
         }
         else {
             if (label == 'alternate') {
-                document.getElementById('alternate-button-container').style.display = 'none'
+                const containerId = `${label}-button-container`
+                const container = document.getElementById(containerId)
+
+                container.style.display = 'none'
             } else if (label == 'cards') {
-                const foo = 1
+                loadHostedFields()
+                const containerId = `${label}-container`
+                const container = document.getElementById(containerId)
+                container.style.display = 'block'
             }
         }
     }
@@ -74,6 +78,9 @@ async function loadPaymentMethods() {
                             container.style.display = 'none'
                         }
                     })
+                document.getElementById('cards-container').style.display = (
+                    label == 'cards' ? 'block' : 'none'
+                )
             })
         })
 }
