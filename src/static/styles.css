@@ -681,3 +681,86 @@ button {
     outline-offset: 0.25rem;
     border-radius: 0.125rem;
 }
+
+#checkout-selector {
+    /* background-color: blue; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-auto-rows: auto; */
+    align-items: start;
+    gap: 1em;
+    padding: 1em;
+
+    formset, #payment-container {
+        border-radius: 1em;
+        border: 1px solid;
+        padding: 1em;
+    }
+
+    formset {
+        grid-column: 1;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5px;
+
+        legend {
+            font-size: 1.25em;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        label {
+            cursor: pointer;
+            background-color: white;
+            border-radius: 1em;
+            border: 1px solid;
+            padding: 1em;
+        }
+    }
+    :has(input[value="cards"]:checked) {
+        #cards-container {
+            display: block;
+        }
+    }
+    :has(input[value="paypal"]:checked) {
+        #paypal-button-container {
+            display: block;
+        }
+    }
+    :has(input[value="venmo"]:checked) {
+        #venmo-button-container {
+            display: block;
+        }
+    }
+    :has(input[value="alternate"]:checked) {
+        #alternate-button-container {
+            display: block;
+        }
+    }
+    #payment-container {
+        header {
+            font-size: 1.25em;
+            font-weight: 600;
+            text-decoration: underline;
+            margin-block-end: 1em;
+        }
+        grid-column: 2;
+        #alternate-button-container {
+            button {
+                background-color: purple;
+
+                color: white;
+                font-weight: 600;
+                font-style: italic;
+                font-size: 22px;
+
+                height: 45px;
+                line-height: 22px;
+
+                width: 100%;
+                border-radius: 4px;
+            }
+        }
+    }
+}

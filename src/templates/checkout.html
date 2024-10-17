@@ -31,6 +31,12 @@
           {{ 'selected' if method == 'google-pay' else '' }}
         >Google Pay</option>
       </optgroup>
+      <optgroup label="Branded + ACDC">
+        <option
+          value="{{ url_for('routes.checkout_selector') }}"
+          {{ 'selected' if method == 'selector' else '' }}
+        >Branded + ACDC</option>
+      </optgroup>
       <optgroup label="ACDC">
         <option
           value="{{ url_for('routes.checkout_fastlane') }}"
