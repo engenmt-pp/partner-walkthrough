@@ -24,7 +24,8 @@ class Vault:
 
         self.vault_level = kwargs.get("vault-level")
         self.vault_id = kwargs.get("vault-id")
-        self.customer_id = kwargs.get("customer-id")
+        self.customer_id = kwargs.get("customer-id") or "NtiESbVfPx"
+        print(f"Customer ID: {self.customer_id}")
 
         self.permit_multiple_payment_tokens = bool(
             kwargs.get("permit-multiple-payment-tokens")

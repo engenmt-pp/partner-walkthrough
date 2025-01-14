@@ -1,5 +1,4 @@
 import {
-  getCardholderName,
   getContingencies,
   createOrder,
   captureOrder,
@@ -65,10 +64,7 @@ async function onSubmit(event) {
 
   const vaultWithoutPurchase = document.querySelector('#vault-without-purchase:checked')
   if (!vaultWithoutPurchase) {
-    const cardholderName = getCardholderName()
-    if (cardholderName) data.cardholderName = cardholderName
-
-    const billingAddress = getBillingAddress()
+    const billingAddress = getBillingAddress();
     if (billingAddress) data.billingAddress = billingAddress
   }
 
@@ -87,17 +83,18 @@ async function loadHostedFields() {
     ...methods
   })
   if (cardFields.isEligible()) {
-    const nameField = cardFields.NameField()
-    await nameField.render('#cardholder-name')
 
     const numberField = cardFields.NumberField()
     await numberField.render('#card-number')
 
+    const expiryField = cardFields.ExpiryField()
+    await expiryField.render('#expiration-date')
+
     const cvvField = cardFields.CVVField()
     await cvvField.render('#cvv')
 
-    const expiryField = cardFields.ExpiryField()
-    await expiryField.render('#expiration-date')
+    const nameField = cardFields.NameField()
+    await nameField.render('#cardholder-name')
 
     document.querySelector("#hf-v2-form").addEventListener('submit', onSubmit)
   } else {
