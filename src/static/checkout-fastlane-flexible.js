@@ -71,17 +71,14 @@ async function captureOrder({ orderId, authId }) {
   console.groupEnd();
 }
 
-// let fastlane;
-// let fastlanePaymentComponent;
-// let identity, profile;
-const styles = {
-  // root: { backgroundColorPrimary: "#FAFAFA" }
-  // root: { backgroundColorPrimary: "#FFF" }
-  root: { backgroundColorPrimary: "transparent" },
-};
 class FastlaneFlexibleCheckout {
   config = {
     cardOptions: { allowedBrands: ["VISA"] },
+    styles: {
+      root: {
+        backgroundColorPrimary: "transparent",
+      },
+    },
   };
   fastlane;
 
