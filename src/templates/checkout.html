@@ -35,7 +35,11 @@
         <option
           value="{{ url_for('routes.checkout_fastlane') }}"
           {{ 'selected' if method == 'fastlane' else '' }}
-        >Fastlane</option>
+        >Fastlane - Quick Start</option>
+        <option
+          value="{{ url_for('routes.checkout_fastlane_flexible') }}"
+          {{ 'selected' if method == 'fastlane-flexible' else '' }}
+        >Fastlane - Flexible</option>
         <option
           value="{{ url_for('routes.checkout_hosted_v2') }}"
           {{ 'selected' if method == 'hosted-v2' else '' }}

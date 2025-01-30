@@ -123,6 +123,24 @@ def checkout_fastlane():
         favicon=current_app.config["favicon"],
     )
 
+@bp.route("checkout/fastlane-flexible/")
+def checkout_fastlane_flexible():
+    """Return the rendered Fastlane checkout page from its template."""
+
+    template = "checkout-fastlane-flexible.html"
+
+    is_direct_merchant = request.args.get("PPCP") == "direct-merchant"
+    partner_and_merchant_config = get_partner_and_merchant_config(
+        is_fastlane=True, is_direct_merchant=is_direct_merchant
+    )
+
+    return render_template(
+        template,
+        method="fastlane-flexible",
+        **partner_and_merchant_config,
+        favicon=current_app.config["favicon"],
+    )
+
 
 @bp.route("statuses/")
 def statuses():
