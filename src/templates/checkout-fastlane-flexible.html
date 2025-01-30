@@ -21,56 +21,17 @@
 {% endblock inner_preamble_options %}
 
 {% block checkout_div %}
-<script type="module">
-  import {
-    setOptions,
-    getOptions,
-    loadOptions,
-    saveOptionsAndReloadPage
-  } from "{{ url_for('static', filename='utils.js') }}";
-  import {
-    setupEventListeners,
-    buildScriptElement
-  } from "{{ url_for('static', filename='checkout.js') }}";
-  
-  import FastlaneFlexibleCheckout from "/static/checkout-fastlane-flexible.js";
-
-  window.addEventListener('load', async function () {
-    const options = loadOptions()
-    window.sessionStorage.clear()
-    setOptions(options)
-
-    const fastlane = new FastlaneFlexibleCheckout();
-    const loadFastlane = async () => {
-      await fastlane.initializeFastlane();
-    }
-
-    buildScriptElement(loadFastlane, 'fastlane')
-    setupEventListeners(() => {
-      buildScriptElement(loadFastlane, 'fastlane')
-    })
-
-    document.getElementById('ppcp-type').addEventListener('change', (event) => {
-      console.log('change', event)
-      if (document.querySelector("#ppcp-type > option[value='partner']:checked")) {
-        console.log("Partner time!")
-        saveOptionsAndReloadPage()
-      } else {
-        console.log("Direct merchant time!")
-        saveOptionsAndReloadPage('direct-merchant')
-      }
-    })
-  })
+<script type="module" src="/static/checkout-fastlane-flexible.js">
 </script>
 <div>
   <form id="fastlane-form">
     <fieldset id="fastlane-email-container">
       <label for="fastlane-email-input">Email</label>
       <input id="fastlane-email-input" name="fastlane-email-input" type="email" value="kite@lute.biz">
-      <button type="button" id="fastlane-email-button" class='disabled'>Look Up Email</button>
+      <button type="button" id="fastlane-email-button" disabled>Look Up Email</button>
     </fieldset>
 
-    <div id="payment-container"></div>
+    <div id="fastlane-card-container"></div>
     <div id="watermark-container">
       <img src="https://www.paypalobjects.com/fastlane-v1/assets/fastlane-with-tooltip_en_sm_light.0808.svg">
     </div>
@@ -85,7 +46,7 @@
       </span>
     </div>
 
-    <button type="button" id="pay-button" class='disabled'>Pay</button>
+    <button type="button" id="pay-button" disabled>Pay</button>
   </form>
 </div>
 {% endblock checkout_div %}

@@ -608,6 +608,7 @@ button {
       background-color: var(--green-800);
     }
 
+    &:disabled,
     &.disabled {
       background-color: grey;
       cursor: not-allowed;
