@@ -1,0 +1,46 @@
+{
+  "name": "alice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "keywords": [],
+  "author": "",
+  "description": "",
+  "dependencies": {
+    "@eslint/js": "^9.16.0",
+    "prettier": "^3.4.1",
+    "prettier-eslint": "^16.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.7",
+    "@babel/eslint-parser": "^7.26.5"
+  },
+  "eslintConfig": {
+    "rules": {
+      "semi": "error",
+      "prefer-const": "error"
+    },
+    "env": {
+      "es6": true
+    },
+    "ignorePatterns": [
+      "**/node_modules/*",
+      ".git/"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 8,
+      "sourceType": "module"
+    }
+  },
+  "prettier": {
+    "singleAttributePerLine": true,
+    "semi": true,
+    "trailingComma": "all",
+    "printWidth": 90
+  }
+}

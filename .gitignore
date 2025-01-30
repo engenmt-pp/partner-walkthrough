@@ -12,3 +12,4 @@ Confluence/
 partner_specific_config.py
 utils.py
 notes.md
+**/node_modules/

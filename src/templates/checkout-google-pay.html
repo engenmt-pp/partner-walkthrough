@@ -1,30 +1,28 @@
-{% extends 'checkout.html' %}
-
-{% block other_options %}
+{% extends 'checkout.html' %} {% block other_options %}
 <fieldset id="google-pay-options">
   <details open>
     <summary>
       <span>
-        <legend>
-          Google Pay Button options
-        </legend>
+        <legend>Google Pay Button options</legend>
       </span>
     </summary>
     <div>
-      <label for="google-pay-button-color">
-        Color
-      </label>
-      <select name="google-pay-button-color" id="google-pay-button-color">
+      <label for="google-pay-button-color"> Color </label>
+      <select
+        name="google-pay-button-color"
+        id="google-pay-button-color"
+      >
         <option selected>Default</option>
         <option>Black</option>
         <option>White</option>
       </select>
     </div>
     <div>
-      <label for="google-pay-button-type">
-        Label
-      </label>
-      <select id="google-pay-button-type" name="google-pay-button-type">
+      <label for="google-pay-button-type"> Label </label>
+      <select
+        id="google-pay-button-type"
+        name="google-pay-button-type"
+      >
         <option>Book</option>
         <option>Buy</option>
         <option>Checkout</option>
@@ -36,10 +34,11 @@
       </select>
     </div>
     <div>
-      <label for="google-pay-button-locale">
-        Language
-      </label>
-      <select id="google-pay-button-locale" name="google-pay-button-locale">
+      <label for="google-pay-button-locale"> Language </label>
+      <select
+        id="google-pay-button-locale"
+        name="google-pay-button-locale"
+      >
         <option value="ar">Arabic</option>
         <option value="bg">Bulgarian</option>
         <option value="ca">Catalan</option>
@@ -48,7 +47,12 @@
         <option value="cs">Czech</option>
         <option value="da">Danish</option>
         <option value="nl">Dutch</option>
-        <option value="en" selected>English</option>
+        <option
+          value="en"
+          selected
+        >
+          English
+        </option>
         <option value="et">Estonian</option>
         <option value="fi">Finnish</option>
         <option value="fr">French</option>
@@ -75,36 +79,32 @@
     </div>
   </details>
 </fieldset>
-{{ super() }}
-{% endblock other_options %}
-
-{% block vault_options %}
-{% endblock vault_options %}
-
-
-{% block checkout_div %}
-<script async src="https://pay.google.com/gp/p/js/pay.js"></script>
+{{ super() }} {% endblock other_options %} {% block vault_options %} {% endblock
+vault_options %} {% block checkout_div %}
+<script
+  async
+  src="https://pay.google.com/gp/p/js/pay.js"
+></script>
 <script type="module">
   import {
     loadOptions,
     saveOptionsAndReloadPage,
-    setOptions
+    setOptions,
   } from "{{ url_for('static', filename='utils.js') }}";
   import {
     setupEventListeners,
-    buildScriptElement
+    buildScriptElement,
   } from "{{ url_for('static', filename='checkout.js') }}";
   import loadGooglePay from "{{ url_for('static', filename='checkout-google-pay.js') }}";
 
-  window.addEventListener('load', function() {
-    const options = loadOptions()
-    window.sessionStorage.clear()
-    setOptions(options)
+  window.addEventListener("load", function () {
+    const options = loadOptions();
+    window.sessionStorage.clear();
+    setOptions(options);
 
-    buildScriptElement(loadGooglePay, 'google-pay')
-    setupEventListeners(saveOptionsAndReloadPage)
-  })
+    buildScriptElement(loadGooglePay, "google-pay");
+    setupEventListeners(saveOptionsAndReloadPage);
+  });
 </script>
-<div id="checkout-google-pay">
-</div>
+<div id="checkout-google-pay"></div>
 {% endblock checkout_div %}

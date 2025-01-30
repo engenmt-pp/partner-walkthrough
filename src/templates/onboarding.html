@@ -1,110 +1,157 @@
-{% extends 'base.html' %}
-
-{% block merchant_id %}
+{% extends 'base.html' %} {% block merchant_id %}
 <!--
   This overwrites the block in 'base.html' with this block's empty contents,
   removing the "Merchant ID" credential from the left column.
 -->
-{% endblock merchant_id %}
-
-{% block other_options %}
+{% endblock merchant_id %} {% block other_options %}
 <fieldset id="referral-options">
   <details open>
     <summary>
       <span>
-        <legend>
-          Referral options
-        </legend>
+        <legend>Referral options</legend>
       </span>
     </summary>
     <div>
-      <label for="party">
-        Party
-      </label>
-      <select name="party" id="party">
+      <label for="party"> Party </label>
+      <select
+        name="party"
+        id="party"
+      >
         <option value="first">First party</option>
-        <option value="third" selected>Third party</option>
+        <option
+          value="third"
+          selected
+        >
+          Third party
+        </option>
       </select>
     </div>
     <div>
-      <label for="product">
-        Product
-      </label>
-      <select name="product" id="product">
-        <option value="EXPRESS_CHECKOUT" selected>Branded only</option>
+      <label for="product"> Product </label>
+      <select
+        name="product"
+        id="product"
+      >
+        <option
+          value="EXPRESS_CHECKOUT"
+          selected
+        >
+          Branded only
+        </option>
         <option value="PPCP">Branded + ACDC/Fastlane</option>
       </select>
     </div>
     <div>
-      <label for="vault-level">
-        Vault v3
-      </label>
-      <select name="vault-level" id="vault-level">
-        <option value="" selected>None</option>
+      <label for="vault-level"> Vault v3 </label>
+      <select
+        name="vault-level"
+        id="vault-level"
+      >
+        <option
+          value=""
+          selected
+        >
+          None
+        </option>
         <option value="PARTNER">Partner-level</option>
         <option value="MERCHANT">Merchant-level</option>
       </select>
     </div>
     <div>
-      <label class="raised">
-        APMs:
-      </label>
+      <label class="raised"> APMs: </label>
       <ul>
         <li>
-          <input name="apm-google-pay" id="apm-google-pay" type="checkbox" value="GOOGLE_PAY">
+          <input
+            name="apm-google-pay"
+            id="apm-google-pay"
+            type="checkbox"
+            value="GOOGLE_PAY"
+          />
           <label for="apm-google-pay">Google Pay</label>
         </li>
       </ul>
     </div>
     <div>
-      <label>
-        Features:
-      </label>
+      <label> Features: </label>
       <ul>
         <li>
-          <input name="feature-payment" id="feature-payment" type="checkbox" value="PAYMENT" checked>
+          <input
+            name="feature-payment"
+            id="feature-payment"
+            type="checkbox"
+            value="PAYMENT"
+            checked
+          />
           <label for="feature-payment">Payment</label>
         </li>
         <li>
-          <input name="feature-partner-fee" id="feature-partner-fee" type="checkbox" value="PARTNER_FEE" checked>
+          <input
+            name="feature-partner-fee"
+            id="feature-partner-fee"
+            type="checkbox"
+            value="PARTNER_FEE"
+            checked
+          />
           <label for="feature-partner-fee">Partner fee</label>
         </li>
         <li>
-          <input name="feature-refund" id="feature-refund" type="checkbox" value="REFUND" checked>
+          <input
+            name="feature-refund"
+            id="feature-refund"
+            type="checkbox"
+            value="REFUND"
+            checked
+          />
           <label for="feature-refund">Refund</label>
         </li>
         <li>
-          <input name="feature-access-merchant-information" id="feature-access-merchant-information" type="checkbox" value="ACCESS_MERCHANT_INFORMATION">
-          <label for="feature-access-merchant-information">Access merchant information</label>
+          <input
+            name="feature-access-merchant-information"
+            id="feature-access-merchant-information"
+            type="checkbox"
+            value="ACCESS_MERCHANT_INFORMATION"
+          />
+          <label for="feature-access-merchant-information"
+            >Access merchant information</label
+          >
         </li>
       </ul>
     </div>
     <div>
-      <label for="include-legal-consents">
-        Legal consents
-      </label>
-      <select name="include-legal-consents" id="include-legal-consents">
-        <option value="include" selected>Include</option>
+      <label for="include-legal-consents"> Legal consents </label>
+      <select
+        name="include-legal-consents"
+        id="include-legal-consents"
+      >
+        <option
+          value="include"
+          selected
+        >
+          Include
+        </option>
         <option value="">Exclude</option>
       </select>
     </div>
     <div>
-      <label for="tracking-id">
-        Tracking ID
-      </label>
-      <input name="tracking-id" id="tracking-id">
+      <label for="tracking-id"> Tracking ID </label>
+      <input
+        name="tracking-id"
+        id="tracking-id"
+      />
     </div>
     <div>
-      <label for="partner-return-url">
-        Return URL
-      </label>
-      <input name="partner-return-url" id="partner-return-url">
+      <label for="partner-return-url"> Return URL </label>
+      <input
+        name="partner-return-url"
+        id="partner-return-url"
+      />
     </div>
     <div>
-      <label for="partner-action-renewal-url">
-        Action renewal URL
-      </label>
-      <input name="partner-action-renewal-url" id="partner-action-renewal-url">
+      <label for="partner-action-renewal-url"> Action renewal URL </label>
+      <input
+        name="partner-action-renewal-url"
+        id="partner-action-renewal-url"
+      />
     </div>
   </details>
 </fieldset>
@@ -112,62 +159,93 @@
   <details open>
     <summary>
       <span>
-        <legend>
-          Merchant prefill
-        </legend>
+        <legend>Merchant prefill</legend>
       </span>
     </summary>
     <div>
-      <label for="email">
-        Email
-      </label>
-      <input name="email" id="email">
+      <label for="email"> Email </label>
+      <input
+        name="email"
+        id="email"
+      />
     </div>
     <div>
-      <label for="country-code">
-        Country
-      </label>
-      <select name="country-code" id="country-code">
+      <label for="country-code"> Country </label>
+      <select
+        name="country-code"
+        id="country-code"
+      >
         {% include 'country-options.html' %}
       </select>
     </div>
     <div>
-      <button type="button" id="create-referral" data-method="post" class="half">Create Referral</button>
+      <button
+        type="button"
+        id="create-referral"
+        data-method="post"
+        class="half"
+      >
+        Create Referral
+      </button>
     </div>
   </details>
 </fieldset>
-{% endblock other_options %}
-
-{% block right_col %}
+{% endblock other_options %} {% block right_col %}
 <the-tabs>
-  <div role='tablist'>
-    <button role='tab' aria-selected='true'>Onboarding</button>
-    <button role='tab' id="tab-api-calls">API Calls</button>
+  <div role="tablist">
+    <button
+      role="tab"
+      aria-selected="true"
+    >
+      Onboarding
+    </button>
+    <button
+      role="tab"
+      id="tab-api-calls"
+    >
+      API Calls
+    </button>
 
-    <button type="button" id="download-all" data-method class="postman">Download all for Postman</button>
+    <button
+      type="button"
+      id="download-all"
+      data-method
+      class="postman"
+    >
+      Download all for Postman
+    </button>
   </div>
-  <div role='tabpanel' data-page="onboarding">
-    <script async src="https://www.paypal.com/webapps/merchantboarding/js/lib/lightbox/partner.js"></script>
+  <div
+    role="tabpanel"
+    data-page="onboarding"
+  >
+    <script
+      async
+      src="https://www.paypal.com/webapps/merchantboarding/js/lib/lightbox/partner.js"
+    ></script>
     <!-- As of 2024-02-21, an error is thrown if the `href` attribute is removed from the initial tag below. -->
     <a
       id="partner-referral"
       data-paypal-button="true"
       href="/"
       target="PPFrame"
-      style="display: none;"
-    >Begin onboarding</a>
+      style="display: none"
+      >Begin onboarding</a
+    >
     <script type="module">
       import createReferral from "{{ url_for('static', filename='onboarding.js') }}";
-      window.addEventListener('load', () => {
-        const createButton = document.getElementById('create-referral')
-        createButton.addEventListener('click', createReferral);
-      })
+      window.addEventListener("load", () => {
+        const createButton = document.getElementById("create-referral");
+        createButton.addEventListener("click", createReferral);
+      });
     </script>
   </div>
-  <div role='tabpanel' hidden>
+  <div
+    role="tabpanel"
+    hidden
+  >
     <the-tabs>
-      <div role='tablist'>
-      </div>
+      <div role="tablist"></div>
     </the-tabs>
   </div>
 </the-tabs>

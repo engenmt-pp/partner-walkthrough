@@ -2,17 +2,21 @@
   <details open>
     <summary>
       <span>
-        <legend>
-          Order options
-        </legend>
+        <legend>Order options</legend>
       </span>
     </summary>
     <div>
-      <label for="mock-header">
-        Mock header
-      </label>
-      <select name="mock-header" id="mock-header">
-        <option value="" selected>None</option>
+      <label for="mock-header"> Mock header </label>
+      <select
+        name="mock-header"
+        id="mock-header"
+      >
+        <option
+          value=""
+          selected
+        >
+          None
+        </option>
         <optgroup label="Create">
           <option value="create-MAX_VALUE_EXCEEDED">Max. value exceeded</option>
         </optgroup>
@@ -27,30 +31,43 @@
       </select>
     </div>
     <div>
-      <label for="user-action">
-        User Action
-      </label>
-      <select name="user-action" id="user-action">
+      <label for="user-action"> User Action </label>
+      <select
+        name="user-action"
+        id="user-action"
+      >
         <option value="CONTINUE">Continue</option>
-        <option value="PAY_NOW" selected>Pay Now</option>
+        <option
+          value="PAY_NOW"
+          selected
+        >
+          Pay Now
+        </option>
       </select>
     </div>
     <div>
-      <label for="shipping-preference">
-        Shipping pref.
-      </label>
-      <select name="shipping-preference" id="shipping-preference">
-        <option value="NO_SHIPPING" selected>No shipping</option>
+      <label for="shipping-preference"> Shipping pref. </label>
+      <select
+        name="shipping-preference"
+        id="shipping-preference"
+      >
+        <option
+          value="NO_SHIPPING"
+          selected
+        >
+          No shipping
+        </option>
         <option value="GET_FROM_FILE">Get from file</option>
         <option value="SET_PROVIDED_ADDRESS">Set provided address</option>
         <option value="">Unspecified</option>
       </select>
     </div>
     <div>
-      <label for="ba-id">
-        BA ID
-      </label>
-      <input name="ba-id" id="ba-id">
+      <label for="ba-id"> BA ID </label>
+      <input
+        name="ba-id"
+        id="ba-id"
+      />
     </div>
   </details>
 </fieldset>
@@ -58,61 +75,88 @@
   <details open>
     <summary>
       <span>
-        <legend>
-          Purchase unit options
-        </legend>
+        <legend>Purchase unit options</legend>
       </span>
     </summary>
     <div>
-      <label for="reference-id">
-        Reference ID
-      </label>
-      <input name="reference-id" id="reference-id" placeholder="default" type="text">
+      <label for="reference-id"> Reference ID </label>
+      <input
+        name="reference-id"
+        id="reference-id"
+        placeholder="default"
+        type="text"
+      />
     </div>
     <div>
-      <label for="custom-id">
-        Custom ID
-      </label>
-      <input name="custom-id" id="custom-id" type="text">
+      <label for="custom-id"> Custom ID </label>
+      <input
+        name="custom-id"
+        id="custom-id"
+        type="text"
+      />
     </div>
     <div>
-      <label for="soft-descriptor">
-        Soft descriptor
-      </label>
-      <input name="soft-descriptor" id="soft-descriptor" type="text">
+      <label for="soft-descriptor"> Soft descriptor </label>
+      <input
+        name="soft-descriptor"
+        id="soft-descriptor"
+        type="text"
+      />
     </div>
     <div>
-      <label for="partner-fee">
-        Partner fee
-      </label>
-      <input name="partner-fee" id="partner-fee" type="number" value="0">
+      <label for="partner-fee"> Partner fee </label>
+      <input
+        name="partner-fee"
+        id="partner-fee"
+        type="number"
+        value="0"
+      />
     </div>
     <div>
-      <label>
-        Include:
-      </label>
+      <label> Include: </label>
       <ul>
         <li>
-          <input type="checkbox" name="include-shipping-address" id="include-shipping-address">
+          <input
+            type="checkbox"
+            name="include-shipping-address"
+            id="include-shipping-address"
+          />
           <label for="include-shipping-address">Default shipping address</label>
         </li>
         <li>
-          <input type="checkbox" name="include-shipping-option" id="include-shipping-option">
+          <input
+            type="checkbox"
+            name="include-shipping-option"
+            id="include-shipping-option"
+          />
           <label for="include-shipping-option">Default shipping option</label>
         </li>
         <li>
-          <input type="checkbox" name="include-custom-purchase-unit-field" id="include-custom-purchase-unit-field">
+          <input
+            type="checkbox"
+            name="include-custom-purchase-unit-field"
+            id="include-custom-purchase-unit-field"
+          />
           <label for="include-custom-purchase-unit-field">Custom field</label>
         </li>
       </ul>
     </div>
     <div class="custom-purchase-unit-field">
       <label for="custom-purchase-unit-key">Key</label>
-      <input name="custom-purchase-unit-key" id="custom-purchase-unit-key" type="text">
+      <input
+        name="custom-purchase-unit-key"
+        id="custom-purchase-unit-key"
+        type="text"
+      />
     </div>
     <div class="custom-purchase-unit-field">
       <label for="custom-purchase-unit-value">JSON value</label>
-      <input name="custom-purchase-unit-value" id="custom-purchase-unit-value" class="full" type="text">
+      <input
+        name="custom-purchase-unit-value"
+        id="custom-purchase-unit-value"
+        class="full"
+        type="text"
+      />
     </div>
   </details>
 </fieldset>
@@ -120,23 +164,39 @@
   <details open>
     <summary>
       <span>
-        <legend>
-          Item options
-        </legend>
+        <legend>Item options</legend>
       </span>
     </summary>
     <div>
       <label for="item-price">Price</label>
-      <input name="item-price" id="item-price" type="number" value="3.14">
+      <input
+        name="item-price"
+        id="item-price"
+        type="number"
+        value="3.14"
+      />
     </div>
     <div>
       <label for="item-tax">Tax</label>
-      <input name="item-tax" id="item-tax" type="number" value="0">
+      <input
+        name="item-tax"
+        id="item-tax"
+        type="number"
+        value="0"
+      />
     </div>
     <div>
       <label for="item-category">Category</label>
-      <select name="item-category" id="item-category">
-        <option value="None" selected>Unspecified</option>
+      <select
+        name="item-category"
+        id="item-category"
+      >
+        <option
+          value="None"
+          selected
+        >
+          Unspecified
+        </option>
         <option value="PHYSICAL_GOODS">Physical goods</option>
         <option value="DIGITAL_GOODS">Digital goods</option>
         <option value="DONATION">Donation</option>
@@ -144,8 +204,16 @@
     </div>
     <div>
       <label for="disbursement-mode">Disbursement</label>
-      <select name="disbursement-mode" id="disbursement-mode">
-        <option value="INSTANT" selected>Instant</option>
+      <select
+        name="disbursement-mode"
+        id="disbursement-mode"
+      >
+        <option
+          value="INSTANT"
+          selected
+        >
+          Instant
+        </option>
         <option value="DELAYED">Delayed</option>
       </select>
     </div>

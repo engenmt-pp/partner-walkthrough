@@ -1,44 +1,55 @@
-{% extends 'base.html' %}
-
-{% block other_options %}
+{% extends 'base.html' %} {% block other_options %}
 <fieldset id="onboarding">
   <details open>
     <summary>
       <span>
-        <legend>
-          Onboarding
-        </legend>
+        <legend>Onboarding</legend>
       </span>
     </summary>
     <div>
-      <label for="status-referral-token">
-        Referral Token
-      </label>
+      <label for="status-referral-token"> Referral Token </label>
       <div>
-        <input name="status-referral-token" id="status-referral-token">
-        <button type="button" id="get-referral-details" data-method="get">
+        <input
+          name="status-referral-token"
+          id="status-referral-token"
+        />
+        <button
+          type="button"
+          id="get-referral-details"
+          data-method="get"
+        >
           Get
         </button>
       </div>
     </div>
     <div>
-      <label for="status-tracking-id">
-        Tracking ID
-      </label>
+      <label for="status-tracking-id"> Tracking ID </label>
       <div>
-        <input name="status-tracking-id" id="status-tracking-id">
-        <button type="button" id='get-seller-id-and-details' data-method="get">
+        <input
+          name="status-tracking-id"
+          id="status-tracking-id"
+        />
+        <button
+          type="button"
+          id="get-seller-id-and-details"
+          data-method="get"
+        >
           Get
         </button>
       </div>
     </div>
     <div>
-      <label for="status-merchant-id">
-        Merchant ID
-      </label>
+      <label for="status-merchant-id"> Merchant ID </label>
       <div>
-        <input name="status-merchant-id" id="status-merchant-id">
-        <button type="button" id='get-seller-details' data-method="get">
+        <input
+          name="status-merchant-id"
+          id="status-merchant-id"
+        />
+        <button
+          type="button"
+          id="get-seller-details"
+          data-method="get"
+        >
           Get
         </button>
       </div>
@@ -50,72 +61,107 @@
   <details open>
     <summary>
       <span>
-        <legend>
-          Checkout
-        </legend>
+        <legend>Checkout</legend>
       </span>
     </summary>
     <div>
-      <label for="include-auth-assertion">
-        Auth Assertion
-      </label>
-      <select name="include-auth-assertion" id="include-auth-assertion">
-        <option value="" selected>Exclude</option>
+      <label for="include-auth-assertion"> Auth Assertion </label>
+      <select
+        name="include-auth-assertion"
+        id="include-auth-assertion"
+      >
+        <option
+          value=""
+          selected
+        >
+          Exclude
+        </option>
         <option value="True">Include</option>
       </select>
     </div>
     <div>
-      <label for="status-order-id">
-        Order ID
-      </label>
+      <label for="status-order-id"> Order ID </label>
       <div>
-        <input name="status-order-id" id="status-order-id">
-        <button type="button" id="get-order-details" data-method="get">
+        <input
+          name="status-order-id"
+          id="status-order-id"
+        />
+        <button
+          type="button"
+          id="get-order-details"
+          data-method="get"
+        >
           Get
         </button>
       </div>
     </div>
     <div>
-      <label for="status-auth-id">
-        Auth ID
-      </label>
+      <label for="status-auth-id"> Auth ID </label>
       <div>
-        <input name="status-auth-id" id="status-auth-id">
-        <button type="button" id="get-auth-details" data-method="get">
+        <input
+          name="status-auth-id"
+          id="status-auth-id"
+        />
+        <button
+          type="button"
+          id="get-auth-details"
+          data-method="get"
+        >
           Get
         </button>
       </div>
     </div>
     <div>
-      <label for="status-capture-id">
-        Capture ID
-      </label>
-      <input name="status-capture-id" id="status-capture-id">
-      <button type="button" id="refund-capture" data-method='delete' class="half">
+      <label for="status-capture-id"> Capture ID </label>
+      <input
+        name="status-capture-id"
+        id="status-capture-id"
+      />
+      <button
+        type="button"
+        id="refund-capture"
+        data-method="delete"
+        class="half"
+      >
         Refund
       </button>
-      <button type="button" id="get-capture-details" data-method="get" class="half">
+      <button
+        type="button"
+        id="get-capture-details"
+        data-method="get"
+        class="half"
+      >
         Get
       </button>
     </div>
     <div>
-      <label for="status-ba-id">
-        BA ID
-      </label>
+      <label for="status-ba-id"> BA ID </label>
       <div>
-        <input name="status-ba-id" id="status-ba-id">
-        <button type="button" id='get-ba-details' data-method="get">
+        <input
+          name="status-ba-id"
+          id="status-ba-id"
+        />
+        <button
+          type="button"
+          id="get-ba-details"
+          data-method="get"
+        >
           Get
         </button>
       </div>
     </div>
     <div>
-      <label for="status-customer-id">
-        Customer ID
-      </label>
+      <label for="status-customer-id"> Customer ID </label>
       <div>
-        <input name="status-customer-id" id="status-customer-id">
-        <button type="button" id='get-payment-tokens' data-method="get">
+        <input
+          name="status-customer-id"
+          id="status-customer-id"
+        />
+        <button
+          type="button"
+          id="get-payment-tokens"
+          data-method="get"
+        >
           Get
         </button>
       </div>
@@ -132,22 +178,31 @@
       </div>
     </div> -->
     <div>
-      <label for="status-payment-token-id">
-        Vault v3 ID
-      </label>
-      <input name="status-payment-token-id" id="status-payment-token-id">
-      <button type="button" id="delete-payment-token" data-method='delete' class="half">
+      <label for="status-payment-token-id"> Vault v3 ID </label>
+      <input
+        name="status-payment-token-id"
+        id="status-payment-token-id"
+      />
+      <button
+        type="button"
+        id="delete-payment-token"
+        data-method="delete"
+        class="half"
+      >
         Delete
       </button>
-      <button type="button" id="get-payment-token-details" data-method="get" class="half">
+      <button
+        type="button"
+        id="get-payment-token-details"
+        data-method="get"
+        class="half"
+      >
         Get
       </button>
     </div>
   </details>
 </fieldset>
-{% endblock other_options %}
-
-{% block right_col %}
+{% endblock other_options %} {% block right_col %}
 <script type="module">
   import {
     getReferralDetails,
@@ -161,38 +216,50 @@
     deletePaymentToken,
     getPaymentTokens,
     getPaymentTokenDetails,
-  } from "{{ url_for('static', filename='statuses.js') }}"
+  } from "{{ url_for('static', filename='statuses.js') }}";
 
   const onClicks = {
-    'get-referral-details': getReferralDetails,
-    'get-seller-details': getSellerDetails,
-    'get-seller-id-and-details': getSellerIdAndDetails,
-    'get-order-details': getOrderDetails,
-    'get-auth-details': getAuthorizationDetails,
-    'get-capture-details': getCaptureDetails,
-    'refund-capture': refundCapture,
-    'get-ba-details': getBaDetails,
-    'get-payment-tokens': getPaymentTokens,
-    'delete-payment-token': deletePaymentToken,
-    'get-payment-token-details': getPaymentTokenDetails,
-  }
-  window.addEventListener('load', async function() {
-    for (const [id, onclick] of Object.entries(onClicks) ) {
-      const button = document.getElementById(id)
-      button.addEventListener('click', onclick)
+    "get-referral-details": getReferralDetails,
+    "get-seller-details": getSellerDetails,
+    "get-seller-id-and-details": getSellerIdAndDetails,
+    "get-order-details": getOrderDetails,
+    "get-auth-details": getAuthorizationDetails,
+    "get-capture-details": getCaptureDetails,
+    "refund-capture": refundCapture,
+    "get-ba-details": getBaDetails,
+    "get-payment-tokens": getPaymentTokens,
+    "delete-payment-token": deletePaymentToken,
+    "get-payment-token-details": getPaymentTokenDetails,
+  };
+  window.addEventListener("load", async function () {
+    for (const [id, onclick] of Object.entries(onClicks)) {
+      const button = document.getElementById(id);
+      button.addEventListener("click", onclick);
     }
-  })
+  });
 </script>
 <the-tabs>
-  <div role='tablist'>
-    <button role='tab' aria-selected='true' id="tab-api-calls">API Calls</button>
+  <div role="tablist">
+    <button
+      role="tab"
+      aria-selected="true"
+      id="tab-api-calls"
+    >
+      API Calls
+    </button>
 
-    <button type="button" id="download-all" data-method class="postman">Download all for Postman</button>
+    <button
+      type="button"
+      id="download-all"
+      data-method
+      class="postman"
+    >
+      Download all for Postman
+    </button>
   </div>
-  <div role='tabpanel'>
+  <div role="tabpanel">
     <the-tabs>
-      <div role='tablist'>
-      </div>
+      <div role="tablist"></div>
     </the-tabs>
   </div>
 </the-tabs>

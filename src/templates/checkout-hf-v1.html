@@ -1,54 +1,51 @@
-{% extends 'checkout.html' %}
-
-{% block other_options %}
+{% extends 'checkout.html' %} {% block other_options %}
 <fieldset id="hosted-v1-options">
   <details open>
     <summary>
       <span>
-        <legend>
-          Hosted Fields v1 options
-        </legend>
+        <legend>Hosted Fields v1 options</legend>
       </span>
     </summary>
     <div>
-      <label for="3ds-preference">
-        3D-Secure (3DS)
-      </label>
-      <select name="3ds-preference" id="3ds-preference">
-        <option value="" selected>None</option>
+      <label for="3ds-preference"> 3D-Secure (3DS) </label>
+      <select
+        name="3ds-preference"
+        id="3ds-preference"
+      >
+        <option
+          value=""
+          selected
+        >
+          None
+        </option>
         <option value="SCA_WHEN_REQUIRED">When required</option>
         <option value="SCA_ALWAYS">Always</option>
       </select>
     </div>
   </details>
 </fieldset>
-{{ super() }}
-{% endblock other_options %}
-
-{% block vault_options %}
-{% endblock vault_options %}
-
-{% block checkout_div %}
+{{ super() }} {% endblock other_options %} {% block vault_options %} {% endblock
+vault_options %} {% block checkout_div %}
 <script type="module">
   import {
     setOptions,
     getOptions,
     loadOptions,
-    saveOptionsAndReloadPage
+    saveOptionsAndReloadPage,
   } from "{{ url_for('static', filename='utils.js') }}";
   import {
     setupEventListeners,
-    buildScriptElement
+    buildScriptElement,
   } from "{{ url_for('static', filename='checkout.js') }}";
   import loadHostedFields from "{{ url_for('static', filename='checkout-hf-v1.js') }}";
-  window.addEventListener('load', async function () {
-    const options = loadOptions()
-    window.sessionStorage.clear()
-    setOptions(options)
+  window.addEventListener("load", async function () {
+    const options = loadOptions();
+    window.sessionStorage.clear();
+    setOptions(options);
 
-    buildScriptElement(loadHostedFields, 'hosted-fields-v1')
-    setupEventListeners(saveOptionsAndReloadPage)
-  })
+    buildScriptElement(loadHostedFields, "hosted-fields-v1");
+    setupEventListeners(saveOptionsAndReloadPage);
+  });
 </script>
 <div>
   <form id="hf-v1-form">
@@ -62,16 +59,63 @@
     <div id="cvv"></div>
 
     <label for="cardholder-name">Name on Card</label>
-    <input type="text" form="options-form" id="cardholder-name" name="cardholder-name" placeholder="Card holder name">
+    <input
+      type="text"
+      form="options-form"
+      id="cardholder-name"
+      name="cardholder-name"
+      placeholder="Card holder name"
+    />
     <label>Billing Address</label>
-    <input type="text" form="options-form" id="billing-address-line-1" name="billing-address-line-1" placeholder="Street address">
-    <input type="text" form="options-form" id="billing-address-line-2" name="billing-address-line-2" placeholder="Unit">
-    <input type="text" form="options-form" id="billing-address-admin-area-1" name="billing-address-admin-area-1" placeholder="City">
-    <input type="text" form="options-form" id="billing-address-admin-area-2" name="billing-address-admin-area-2" placeholder="State">
-    <input type="text" form="options-form" id="billing-address-postal-code" name="billing-address-postal-code" placeholder="Postal code">
-    <input type="text" form="options-form" id="billing-address-country-code" name="billing-address-country-code" placeholder="Country code">
+    <input
+      type="text"
+      form="options-form"
+      id="billing-address-line-1"
+      name="billing-address-line-1"
+      placeholder="Street address"
+    />
+    <input
+      type="text"
+      form="options-form"
+      id="billing-address-line-2"
+      name="billing-address-line-2"
+      placeholder="Unit"
+    />
+    <input
+      type="text"
+      form="options-form"
+      id="billing-address-admin-area-1"
+      name="billing-address-admin-area-1"
+      placeholder="City"
+    />
+    <input
+      type="text"
+      form="options-form"
+      id="billing-address-admin-area-2"
+      name="billing-address-admin-area-2"
+      placeholder="State"
+    />
+    <input
+      type="text"
+      form="options-form"
+      id="billing-address-postal-code"
+      name="billing-address-postal-code"
+      placeholder="Postal code"
+    />
+    <input
+      type="text"
+      form="options-form"
+      id="billing-address-country-code"
+      name="billing-address-country-code"
+      placeholder="Country code"
+    />
 
-    <button value="submit" id="pay-button">Pay</button>
+    <button
+      value="submit"
+      id="pay-button"
+    >
+      Pay
+    </button>
   </form>
 </div>
 {% endblock checkout_div %}

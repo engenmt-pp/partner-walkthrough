@@ -1,44 +1,45 @@
-{% extends 'checkout.html' %}
-
-{% block additional_sdk_options %}
+{% extends 'checkout.html' %} {% block additional_sdk_options %}
 <div>
-  <label for="button-label">
-    Button label
-  </label>
-  <select name="button-label" id="button-label">
-    <option value="paypal" selected>PayPal</option>
+  <label for="button-label"> Button label </label>
+  <select
+    name="button-label"
+    id="button-label"
+  >
+    <option
+      value="paypal"
+      selected
+    >
+      PayPal
+    </option>
     <option value="checkout">Checkout</option>
     <option value="buynow">Buy Now</option>
     <option value="pay">Pay with</option>
     <option value="donate">Donate</option>
   </select>
 </div>
-{% endblock additional_sdk_options %}
-
-{% block checkout_div %}
+{% endblock additional_sdk_options %} {% block checkout_div %}
 <script type="module">
-  import {
-    loadOptions,
-    setOptions
-  } from "{{ url_for('static', filename='utils.js') }}";
+  import { loadOptions, setOptions } from "{{ url_for('static', filename='utils.js') }}";
   import {
     setupEventListeners,
-    buildScriptElement
+    buildScriptElement,
   } from "{{ url_for('static', filename='checkout.js') }}";
   import loadButtons from "{{ url_for('static', filename='checkout-branded.js') }}";
   import buyerNotPresentCheckout from "{{ url_for('static', filename='checkout-buyer-not-present.js') }}";
-  window.addEventListener('load', async function() {
-    const options = loadOptions()
-    window.sessionStorage.clear()
-    setOptions(options)
+  window.addEventListener("load", async function () {
+    const options = loadOptions();
+    window.sessionStorage.clear();
+    setOptions(options);
 
-    buildScriptElement(loadButtons, 'branded')
+    buildScriptElement(loadButtons, "branded");
     setupEventListeners(() => {
-      buildScriptElement(loadButtons, 'branded')
-    })
+      buildScriptElement(loadButtons, "branded");
+    });
 
-    document.getElementById('buyer-not-present-checkout').addEventListener('click', buyerNotPresentCheckout)
-  })
+    document
+      .getElementById("buyer-not-present-checkout")
+      .addEventListener("click", buyerNotPresentCheckout);
+  });
 </script>
 <div id="checkout-branded">
   <div id="paypal-button-container"></div>
