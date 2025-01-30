@@ -79,10 +79,9 @@ let fastlane
 let fastlanePaymentComponent
 let identity, profile
 const styles = {
-    // root: { backgroundColorPrimary: "#FAFAFA" }
-    // root: { backgroundColorPrimary: "#FFF" }
-    root: { backgroundColorPrimary: "transparent" }
+    root: { backgroundColorPrimary: "transparent" , fontSizeBase: '16px', padding: '0px'}
 }
+
 
 async function attemptCheckout() {
     console.group("Attempting checkout...")
@@ -94,7 +93,10 @@ async function attemptCheckout() {
     }
 
     console.log("Facilitating checkout...")
-    const { id: paymentTokenId } = await fastlanePaymentComponent.getPaymentToken()
+    // const { id: paymentTokenId } = await fastlanePaymentComponent.getPaymentToken()
+    const data = await fastlanePaymentComponent.getPaymentToken()
+    console.log("All data!", data);
+    const { id: paymentTokenId } = data;
 
     const { orderId, authId, captureId } = await createOrder(paymentTokenId)
 
@@ -267,9 +269,9 @@ async function displayShippingAddress(shippingAddress) {
 
 async function loadFastlane() {
     const cardOptions = { "allowedBrands": ['VISA'] }
-    const fastlaneConfig = { cardOptions }
+    const fastlaneConfig = { cardOptions, styles }
     console.log("Instantiating paypal.Fastlane with this config:", fastlaneConfig)
-    fastlane = await paypal.Fastlane({ cardOptions })
+    fastlane = await paypal.Fastlane(fastlaneConfig)
     console.log('Fastlane:', fastlane);
     ({ identity, profile } = fastlane)
 
